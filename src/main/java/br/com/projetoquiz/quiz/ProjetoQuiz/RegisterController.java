@@ -1,6 +1,8 @@
 package br.com.projetoquiz.quiz.ProjetoQuiz;
 
 import java.io.IOException;
+// ===== 1. IMPORTAÇÃO ADICIONADA =====
+import java.util.regex.Pattern;
 import br.com.projetoquiz.quiz.ProjetoQuiz.dao.UserDAO;
 import br.com.projetoquiz.quiz.ProjetoQuiz.model.User;
 import javafx.fxml.FXML;
@@ -11,6 +13,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class RegisterController {
+
+    // ===== 2. REGRA DE VALIDAÇÃO ADICIONADA =====
+    private static final Pattern VALID_USERNAME_PATTERN = Pattern.compile("^[a-zA-Z0-9_]+$");
 
     @FXML private TextField usernameField;
     @FXML private TextField emailField;
@@ -30,6 +35,13 @@ public class RegisterController {
             App.showAlert(AlertType.WARNING, "Quiz Animado - Versão Alpha 1.3", "Usuário, e-mail e senha são obrigatórios.");
             return;
         }
+
+        // ===== 3. NOVA VALIDAÇÃO DE CARACTERES ESPECIAIS ADICIONADA =====
+        if (!VALID_USERNAME_PATTERN.matcher(username).matches()) {
+            App.showAlert(AlertType.WARNING, "Quiz Animado - Versão Alpha 1.3", "O nome de usuário pode conter apenas letras, números e underline (_).");
+            return;
+        }
+        // ===================================================================
 
         // ----- NOVA VALIDAÇÃO DE TAMANHO DO USUÁRIO -----
         if (username.length() < 5) {

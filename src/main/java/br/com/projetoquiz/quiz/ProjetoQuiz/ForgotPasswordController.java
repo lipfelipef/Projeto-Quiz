@@ -18,8 +18,8 @@ public class ForgotPasswordController {
     @FXML private VBox searchPane;
     @FXML private TextField usernameField;
     @FXML private VBox resetPane;
-    @FXML private Label securityQuestionLabel; // Vamos reaproveitar este label para o PIN
-    @FXML private TextField securityAnswerField;   // E este para a resposta do PIN
+    @FXML private Label securityQuestionLabel;
+    @FXML private TextField securityAnswerField;
     @FXML private PasswordField newPasswordField;
     @FXML private Button resetPasswordButton;
     @FXML private Label statusLabel;
@@ -37,9 +37,8 @@ public class ForgotPasswordController {
         UserDAO userDAO = new UserDAO();
         this.foundUser = userDAO.findUserByUsername(username);
 
-        // A lógica agora verifica se o usuário existe e se ele TEM um PIN cadastrado
         if (foundUser != null && foundUser.getPin() != null && !foundUser.getPin().isEmpty()) {
-            securityQuestionLabel.setText("Por favor, insira seu PIN de 4 dígitos."); // Mudamos o texto
+            securityQuestionLabel.setText("Por favor, insira seu PIN de 4 dígitos.");
             
             searchPane.setVisible(false);
             searchPane.setManaged(false);
@@ -54,7 +53,7 @@ public class ForgotPasswordController {
 
     @FXML
     private void handleResetPasswordAction() {
-        String pinAttempt = securityAnswerField.getText(); // O usuário digita o PIN aqui
+        String pinAttempt = securityAnswerField.getText();
         String newPassword = newPasswordField.getText();
 
         if (pinAttempt.isEmpty() || newPassword.isEmpty()) {
@@ -63,7 +62,14 @@ public class ForgotPasswordController {
             return;
         }
         
-        // A lógica agora compara o PIN
+        // ===== NOVA VALIDAÇÃO DE TAMANHO DA SENHA ADICIONADA AQUI =====
+        if (newPassword.length() < 5) {
+            statusLabel.setTextFill(Color.RED);
+            statusLabel.setText("A nova senha deve ter no mínimo 5 caracteres.");
+            return;
+        }
+        // =============================================================
+        
         if (foundUser != null && foundUser.getPin().equals(pinAttempt)) {
             UserDAO userDAO = new UserDAO();
             userDAO.updatePassword(foundUser.getUsername(), newPassword);

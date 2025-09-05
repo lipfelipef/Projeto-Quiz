@@ -3,68 +3,60 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.layout.Background?>
-<?import javafx.scene.layout.BackgroundFill?>
-<?import javafx.scene.layout.CornerRadii?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Priority?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="30.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="br.com.projetoquiz.quiz.ProjetoQuiz.RankingController"
-      prefWidth="1280.0" prefHeight="720.0">
-    
+<VBox alignment="TOP_CENTER" spacing="10.0" style="-fx-background-color: linear-gradient(to bottom, #eef2f3, #dfe9f3);" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.projetoquiz.quiz.ProjetoQuiz.RankingController">
     <padding>
-        <Insets top="40.0" right="40.0" bottom="40.0" left="40.0" />
+        <Insets bottom="20.0" left="40.0" right="40.0" top="20.0" />
     </padding>
-
     <children>
-        <!-- Título -->
-        <Label text="Ranking dos Campeões" textFill="#2c3e50">
+        <Label text="Ranking dos Campeões">
             <font>
-                <Font name="System Bold" size="36.0"/>
+                <Font name="System Bold" size="48.0" />
             </font>
             <effect>
-                <DropShadow radius="6.0" color="#00000055"/>
+                <DropShadow color="#00000055" radius="8.0" />
             </effect>
+            <VBox.margin>
+                <Insets bottom="10.0" />
+            </VBox.margin>
         </Label>
-
-        <!-- Tabela -->
-        <TableView fx:id="rankingTable" prefHeight="500.0" maxWidth="900.0">
-            <columns>
-                <TableColumn fx:id="playerColumn" prefWidth="650.0" text="Jogador" />
-                <TableColumn fx:id="scoreColumn" prefWidth="250.0" text="Pontuação" />
-            </columns>
+        
+        <HBox alignment="CENTER_LEFT" maxWidth="800.0" style="-fx-padding: 0 15 0 15;">
+            <children>
+                <Label text="USUÁRIO">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Label>
+                <Pane HBox.hgrow="ALWAYS" />
+                <Label text="PONTUAÇÃO">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" style="-fx-background-color: transparent; -fx-background: transparent;">
+            <content>
+                <VBox fx:id="rankingContainer" alignment="TOP_CENTER" spacing="10.0" />
+            </content>
+        </ScrollPane>
+        
+        <Button fx:id="backButton" onAction="#handleBackButtonAction" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(to right, #4facfe, #00f2fe); -fx-background-radius: 10; -fx-font-weight: bold; -fx-font-size: 16px;" text="Voltar" textFill="WHITE">
             <effect>
-                <DropShadow radius="8.0" color="#00000033"/>
+                <DropShadow color="#00000044" radius="4.0" />
             </effect>
-        </TableView>
-
-        <!-- Botão Voltar -->
-        <Button fx:id="backButton" onAction="#handleBackButtonAction" text="Voltar" textFill="white">
-            <font>
-                <Font name="System Bold" size="16.0"/>
-            </font>
-            <effect>
-                <DropShadow radius="4.0" color="#00000055"/>
-            </effect>
-            <background>
-                <Background>
-                    <fills>
-                        <BackgroundFill>
-                            <fill>
-                                <Color fx:constant="DODGERBLUE"/>
-                            </fill>
-                            <radii>
-                                <CornerRadii topLeft="10.0" topRight="10.0" bottomLeft="10.0" bottomRight="10.0"/>
-                            </radii>
-                        </BackgroundFill>
-                    </fills>
-                </Background>
-            </background>
+            <VBox.margin>
+                <Insets top="20.0" />
+            </VBox.margin>
         </Button>
     </children>
 </VBox>
