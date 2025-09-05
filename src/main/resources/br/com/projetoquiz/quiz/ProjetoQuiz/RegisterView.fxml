@@ -6,14 +6,11 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.layout.Background?>
-<?import javafx.scene.layout.BackgroundFill?>
-<?import javafx.scene.layout.CornerRadii?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" maxWidth="500.0" spacing="15.0"
+      style="-fx-background-color: linear-gradient(to bottom, #eef2f3, #dfe9f3);"
       xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="br.com.projetoquiz.quiz.ProjetoQuiz.RegisterController"
       prefWidth="800.0" prefHeight="600.0">
@@ -24,12 +21,12 @@
 
    <children>
       <!-- Título -->
-      <Label text="Cadastro de Usuário" textFill="#2c3e50">
+      <Label text="Cadastre-se para jogar!" textFill="#2c3e50">
          <font>
             <Font name="System Bold" size="30.0"/>
          </font>
          <effect>
-            <DropShadow radius="6.0" color="#00000055"/>
+            <DropShadow radius="6.0" color="#00000033"/>
          </effect>
          <VBox.margin>
             <Insets bottom="20.0"/>
@@ -37,44 +34,42 @@
       </Label>
 
       <!-- Campos -->
-      <TextField fx:id="usernameField" promptText="Digite um nome de usuário" maxWidth="300.0"/>
-      <TextField fx:id="emailField" promptText="Digite seu e-mail" maxWidth="300.0"/>
-      <PasswordField fx:id="passwordField" promptText="Digite uma senha" maxWidth="300.0"/>
-      <PasswordField fx:id="confirmPasswordField" promptText="Confirme sua senha" maxWidth="300.0"/>
-      <PasswordField fx:id="pinField" promptText="Crie um PIN de 4 dígitos (opcional)" maxWidth="300.0"/>
+      <TextField fx:id="usernameField" promptText="Digite um nome de usuário." maxWidth="300.0"
+                 style="-fx-background-radius: 10; -fx-padding: 8; -fx-border-color: #ccc; -fx-border-radius: 10;"/>
+      <TextField fx:id="emailField" promptText="Digite seu e-mail." maxWidth="300.0"
+                 style="-fx-background-radius: 10; -fx-padding: 8; -fx-border-color: #ccc; -fx-border-radius: 10;"/>
+      <PasswordField fx:id="passwordField" promptText="Digite sua senha." maxWidth="300.0"
+                     style="-fx-background-radius: 10; -fx-padding: 8; -fx-border-color: #ccc; -fx-border-radius: 10;"/>
+      <PasswordField fx:id="confirmPasswordField" promptText="Digite sua senha novamente." maxWidth="300.0"
+                     style="-fx-background-radius: 10; -fx-padding: 8; -fx-border-color: #ccc; -fx-border-radius: 10;"/>
+      <PasswordField fx:id="pinField" promptText="Crie um PIN de 4 dígitos (opcional)" maxWidth="300.0"
+                     style="-fx-background-radius: 10; -fx-padding: 8; -fx-border-color: #ccc; -fx-border-radius: 10;"/>
 
-      <!-- Botão Cadastrar -->
-      <Button onAction="#handleRegisterButtonAction" text="Cadastrar" textFill="white" maxWidth="200.0">
+      <!-- Botão Azul padrão -->
+      <Button onAction="#handleRegisterButtonAction" text="Cadastrar conta" textFill="white" maxWidth="200.0"
+              style="-fx-background-color: linear-gradient(to right, #4facfe, #00f2fe);
+                     -fx-background-radius: 20; -fx-padding: 10 20; -fx-font-size: 16px;">
          <font>
             <Font name="System Bold" size="16.0"/>
          </font>
          <effect>
-            <DropShadow radius="4.0" color="#00000055"/>
+            <DropShadow radius="4.0" color="#00000044"/>
          </effect>
-         <background>
-            <Background>
-               <fills>
-                  <BackgroundFill>
-                     <fill>
-                        <Color fx:constant="SEAGREEN"/>
-                     </fill>
-                     <radii>
-                        <CornerRadii topLeft="10.0" topRight="10.0" bottomLeft="10.0" bottomRight="10.0"/>
-                     </radii>
-                  </BackgroundFill>
-               </fills>
-            </Background>
-         </background>
          <VBox.margin>
             <Insets top="15.0"/>
          </VBox.margin>
       </Button>
 
-      <!-- Botão Voltar -->
-      <Button onAction="#handleBackButtonAction" text="Voltar para o Login" textFill="#2c3e50">
+      <!-- Botão Voltar (cinza igual ao Recuperação de Senha) -->
+      <Button onAction="#handleBackButtonAction" text="Retornar ao início de sessão" textFill="#2c3e50" maxWidth="220.0"
+              style="-fx-background-color: linear-gradient(to right, #bdc3c7, #ecf0f1);
+                     -fx-background-radius: 20; -fx-padding: 8 16; -fx-font-size: 14px;">
          <font>
-            <Font name="System" size="14.0"/>
+            <Font name="System Bold" size="14.0"/>
          </font>
+         <effect>
+            <DropShadow radius="4.0" color="#00000033"/>
+         </effect>
          <VBox.margin>
             <Insets top="10.0"/>
          </VBox.margin>

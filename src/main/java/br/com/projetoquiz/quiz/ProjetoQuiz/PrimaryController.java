@@ -28,7 +28,7 @@ public class PrimaryController {
         String email = emailField.getText().trim();
         String password = passwordField.getText().trim();
 
-        feedbackLabel.setText("");
+        feedbackLabel.setText("Quiz Animado - Versão Alpha 1.3");
 
         if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
             feedbackLabel.setText("Por favor, preencha todos os campos.");
@@ -45,7 +45,7 @@ public class PrimaryController {
                 openQuizScreen(user);
             }
         } else {
-            feedbackLabel.setText("Usuário, e-mail ou senha incorretos.");
+            feedbackLabel.setText("Usuário, e-mail ou senha inseridos estão incorretos.");
         }
     }
     
@@ -88,20 +88,20 @@ public class PrimaryController {
     }
 
     private void openQuizScreen(User user) {
-        switchScene("QuizView.fxml", user, "Quiz de Desenhos Animados");
+        switchScene("QuizView.fxml", user, "Quiz Animado - Versão Alpha 1.2");
     }
 
     private void openSecurityCheckScreen(User user) {
-        switchScene("SecurityCheckView.fxml", user, "Verificação de Segurança");
+        switchScene("SecurityCheckView.fxml", user, "Quiz Animado - Versão Alpha 1.2");
     }
 
     @FXML
     private void handleRegisterLinkAction() {
-        switchScene("RegisterView.fxml", null, "Cadastro de Novo Usuário");
+        switchScene("RegisterView.fxml", null, "Quiz Animado - Versão Alpha 1.2");
     }
 
     @FXML
     private void handleForgotPasswordLinkAction() {
-        switchScene("ForgotPasswordView.fxml", null, "Recuperação de Senha");
+        switchScene("ForgotPasswordView.fxml", null, "Quiz Animado - Versão Alpha 1.2");
     }
 }

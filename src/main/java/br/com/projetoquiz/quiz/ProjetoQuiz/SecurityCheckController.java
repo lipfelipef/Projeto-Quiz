@@ -48,7 +48,7 @@ public class SecurityCheckController {
                 // 2. Cria a nova cena e a define na JANELA ATUAL
                 Scene newScene = new Scene(root, 1280, 720);
                 currentStage.setScene(newScene);
-                currentStage.setTitle("Quiz de Desenhos Animados");
+                currentStage.setTitle("Quiz Animado - Versão Alpha 1.3");
 
                 FadeTransition ft = new FadeTransition(Duration.millis(500), root);
                 ft.setFromValue(0);
@@ -60,7 +60,7 @@ public class SecurityCheckController {
             }
         } else {
             // PIN INCORRETO!
-            statusLabel.setText("PIN incorreto. Tente novamente.");
+            statusLabel.setText("O PIN inserido está incorreto, tente novamente.");
         }
     }
 }

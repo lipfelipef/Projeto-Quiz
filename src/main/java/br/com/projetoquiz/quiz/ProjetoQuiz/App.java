@@ -23,7 +23,7 @@ public class App extends Application {
 
         scene = new Scene(loadFXML("primary"), 1280, 720);
         stage.setScene(scene);
-        stage.setTitle("Quiz de Desenhos Animados");
+        stage.setTitle("Quiz Animado - Versão Alpha 1.3");
         stage.setResizable(false);
         stage.show();
     }

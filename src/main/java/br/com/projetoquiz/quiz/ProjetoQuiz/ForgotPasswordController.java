@@ -30,7 +30,7 @@ public class ForgotPasswordController {
     private void handleSearchUserAction() {
         String username = usernameField.getText();
         if (username.isEmpty()) {
-            statusLabel.setText("Por favor, digite um nome de usuário.");
+            statusLabel.setText("Por favor, insira um nome de usuário.");
             return;
         }
 
@@ -47,7 +47,7 @@ public class ForgotPasswordController {
             resetPane.setManaged(true);
             statusLabel.setText("");
         } else {
-            statusLabel.setText("Usuário não encontrado ou não possui PIN de segurança.");
+            statusLabel.setText("Usuário não encontrado ou não possui um PIN de segurança.");
             this.foundUser = null;
         }
     }
@@ -59,7 +59,7 @@ public class ForgotPasswordController {
 
         if (pinAttempt.isEmpty() || newPassword.isEmpty()) {
             statusLabel.setTextFill(Color.RED);
-            statusLabel.setText("Por favor, preencha todos os campos.");
+            statusLabel.setText("Por favor, é necessário preencher todos os campos.");
             return;
         }
         
@@ -69,14 +69,14 @@ public class ForgotPasswordController {
             userDAO.updatePassword(foundUser.getUsername(), newPassword);
             
             statusLabel.setTextFill(Color.GREEN);
-            statusLabel.setText("Senha redefinida com sucesso! Pode voltar e fazer o login.");
+            statusLabel.setText("Senha redefinida com sucesso! Efetue seu login novamente.");
 
             resetPasswordButton.setDisable(true);
             newPasswordField.setDisable(true);
             securityAnswerField.setDisable(true);
         } else {
             statusLabel.setTextFill(Color.RED);
-            statusLabel.setText("PIN incorreto!");
+            statusLabel.setText("O PIN inserido está incorreto, tente novamente.");
         }
     }
     
@@ -86,7 +86,7 @@ public class ForgotPasswordController {
             Stage currentStage = (Stage) statusLabel.getScene().getWindow();
             currentStage.close();
             Stage stage = new Stage();
-            stage.setTitle("Quiz de Desenhos Animados");
+            stage.setTitle("Quiz Animado - Versão Alpha 1.3");
             Scene scene = new Scene(App.loadFXML("primary"), 1280, 720);
             stage.setScene(scene);
             stage.setResizable(false);

@@ -58,44 +58,44 @@ public class QuizController {
         // Perguntas Fáceis
         questions.add(new Question("Em 'Bob Esponja', qual é o nome do melhor amigo dele?",
                 Arrays.asList("Lula Molusco", "Patrick Estrela", "Seu Sirigueijo", "Sandy Bochechas"),
-                1, Difficulty.FACIL, 100));
+                1, Difficulty.FACIL, 20));
         questions.add(new Question("Em 'Os Padrinhos Mágicos', qual a cor do cabelo do Cosmo?",
                 Arrays.asList("Rosa", "Roxo", "Verde", "Azul"),
-                2, Difficulty.FACIL, 100));
+                2, Difficulty.FACIL, 20));
         questions.add(new Question("Qual animal o Pernalonga é?",
                 Arrays.asList("Pato", "Lobo", "Coelho", "Coiote"),
-                2, Difficulty.FACIL, 100));
+                2, Difficulty.FACIL, 20));
         questions.add(new Question("Em 'O Rei Leão', qual é o nome do pai de Simba?",
                 Arrays.asList("Scar", "Mufasa", "Timão", "Pumba"),
-                1, Difficulty.FACIL, 100));
+                1, Difficulty.FACIL, 20));
 
         // Perguntas Médias
         questions.add(new Question("Em 'As Meninas Superpoderosas', qual ingrediente secreto foi adicionado para criá-las?",
                 Arrays.asList("Açúcar", "Tempero", "Tudo que há de bom", "Elemento X"),
-                3, Difficulty.MEDIO, 200));
+                3, Difficulty.MEDIO, 50));
         questions.add(new Question("Qual é o nome do dono do Woody e do Buzz em 'Toy Story'?",
                 Arrays.asList("Sid", "Andy", "Molly", "Dave"),
-                1, Difficulty.MEDIO, 200));
+                1, Difficulty.MEDIO, 50));
         questions.add(new Question("Em 'Procurando Nemo', qual o endereço que Dory não consegue esquecer?",
                 Arrays.asList("P. Sherman, 42 Wallaby Way, Sydney", "Rua dos Bobos, número 0", "Avenida Atlântida, 123", "Recife de Corais, 10"),
-                0, Difficulty.MEDIO, 200));
+                0, Difficulty.MEDIO, 50));
         questions.add(new Question("Em 'Shrek', qual criatura de contos de fadas se torna o melhor amigo dele?",
                 Arrays.asList("Gato de Botas", "Biscoito", "Pinóquio", "Burro"),
-                3, Difficulty.MEDIO, 200));
+                3, Difficulty.MEDIO, 50));
 
         // Perguntas Difíceis
         questions.add(new Question("Qual o nome do laboratório do rival de Dexter em 'O Laboratório de Dexter'?",
                 Arrays.asList("ACME Labs", "Stark Industries", "Mandark's Lab", "Globex Corporation"),
-                2, Difficulty.DIFICIL, 300));
+                2, Difficulty.DIFICIL, 100));
         questions.add(new Question("Em 'A Vaca e o Frango', qual é o nome do personagem vermelho sem calças?",
                 Arrays.asList("Bum de Fora", "Frango", "Vaca", "O Demônio"),
-                0, Difficulty.DIFICIL, 300));
+                0, Difficulty.DIFICIL, 100));
         questions.add(new Question("No desenho 'Coragem, o Cão Covarde', qual o nome da cidade onde eles moram?",
                 Arrays.asList("Lugar Nenhum", "Qualquer Lugar", "Cidade Grande", "Fazenda Distante"),
-                0, Difficulty.DIFICIL, 300));
+                0, Difficulty.DIFICIL, 100));
         questions.add(new Question("Em 'Avatar: A Lenda de Aang', qual o nome da primeira Dobradora de Água?",
                 Arrays.asList("Katara", "Korra", "Yue", "Hama"),
-                2, Difficulty.DIFICIL, 300));
+                2, Difficulty.DIFICIL, 100));
     }
 
     private void startQuiz() {
@@ -118,8 +118,8 @@ public class QuizController {
             optionButton2.setText(currentQuestion.getOptions().get(1));
             optionButton3.setText(currentQuestion.getOptions().get(2));
             optionButton4.setText(currentQuestion.getOptions().get(3));
-            questionCounterLabel.setText("Questão: " + (currentQuestionIndex + 1) + " / " + questions.size());
-            scoreLabel.setText("Placar: " + score);
+            questionCounterLabel.setText("Questão: " + (currentQuestionIndex + 1) + " de " + questions.size());
+            scoreLabel.setText("Pontuação: " + score);
         } else {
             showFinalResults();
         }
@@ -147,7 +147,7 @@ public class QuizController {
     private void showFinalResults() {
         quizPane.setVisible(false);
         quizPane.setManaged(false);
-        finalScoreLabel.setText("Sua pontuação final foi: " + score);
+        finalScoreLabel.setText("Você obteve um total de " + score + " pontos nessa jogada, que tal tentar novamente?");
         endGamePane.setVisible(true);
         endGamePane.setManaged(true);
     }

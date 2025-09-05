@@ -27,48 +27,48 @@ public class RegisterController {
         String pin = pinField.getText().trim();
 
         if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
-            App.showAlert(AlertType.WARNING, "Campos Vazios", "Usuário, e-mail e senha são obrigatórios.");
+            App.showAlert(AlertType.WARNING, "Quiz Animado - Versão Alpha 1.3", "Usuário, e-mail e senha são obrigatórios.");
             return;
         }
 
         // ----- NOVA VALIDAÇÃO DE TAMANHO DO USUÁRIO -----
         if (username.length() < 5) {
-            App.showAlert(AlertType.WARNING, "Usuário Inválido", "O nome de usuário deve ter no mínimo 5 caracteres.");
+            App.showAlert(AlertType.WARNING, "Quiz Animado - Versão Alpha 1.3", "O nome de usuário deve conter no mínimo 5 caracteres.");
             return;
         }
 
         // ----- NOVA VALIDAÇÃO DE TAMANHO DA SENHA -----
         if (password.length() < 5) {
-            App.showAlert(AlertType.WARNING, "Senha Inválida", "A senha deve ter no mínimo 5 caracteres.");
+            App.showAlert(AlertType.WARNING, "Quiz Animado - Versão Alpha 1.3", "A senha deve conter no mínimo 5 caracteres.");
             return;
         }
 
         if (!password.equals(confirmPassword)) {
-            App.showAlert(AlertType.ERROR, "Erro de Senha", "As senhas digitadas não conferem.");
+            App.showAlert(AlertType.ERROR, "Quiz Animado - Versão Alpha 1.3", "As senhas digitadas não conferem.");
             return;
         }
         if (!email.contains("@")) {
-            App.showAlert(AlertType.ERROR, "E-mail Inválido", "Por favor, insira um e-mail válido.");
+            App.showAlert(AlertType.ERROR, "Quiz Animado - Versão Alpha 1.3", "Por favor, insira um e-mail válido.");
             return;
         }
         if (!pin.isEmpty() && (!pin.matches("\\d{4}"))) {
-            App.showAlert(AlertType.ERROR, "PIN Inválido", "O PIN é opcional, mas se preenchido, deve conter exatamente 4 números.");
+            App.showAlert(AlertType.ERROR, "Quiz Animado - Versão Alpha 1.3", "O PIN deve conter apenas 4 digitos.");
             return;
         }
 
         UserDAO userDAO = new UserDAO();
         if (userDAO.userOrEmailExists(username, email)) {
-            App.showAlert(AlertType.ERROR, "Erro no Cadastro", "O nome de usuário ou o e-mail informado já está em uso.");
+            App.showAlert(AlertType.ERROR, "Quiz Animado - Versão Alpha 1.3", "O nome de usuário ou o e-mail informado já estão em uso.");
             return;
         }
 
         try {
             User newUser = new User(username, password, email, pin);
             userDAO.saveUser(newUser);
-            App.showAlert(AlertType.INFORMATION, "Cadastro Concluído", "Usuário cadastrado com sucesso!");
+            App.showAlert(AlertType.INFORMATION, "Quiz Animado - Versão Alpha 1.3", "Usuário cadastrado com sucesso. Seja bem-vindo!");
             handleBackButtonAction();
         } catch (Exception e) {
-            App.showAlert(AlertType.ERROR, "Erro no Banco de Dados", "Ocorreu um erro inesperado ao salvar os dados.");
+            App.showAlert(AlertType.ERROR, "Quiz Animado - Versão Alpha 1.3", "Ocorreu um erro inesperado ao salvar os dados, informe ao administrador responsável.");
             e.printStackTrace();
         }
     }
@@ -79,7 +79,7 @@ public class RegisterController {
             Stage currentStage = (Stage) usernameField.getScene().getWindow();
             currentStage.close();
             Stage stage = new Stage();
-            stage.setTitle("Quiz de Desenhos Animados");
+            stage.setTitle("Quiz Animado - Versão Alpha 1.3");
             Scene scene = new Scene(App.loadFXML("primary"), 1280, 720);
             stage.setScene(scene);
             stage.setResizable(false);

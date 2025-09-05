@@ -60,7 +60,7 @@ public class RankingController {
 
             // Abre a tela de login
             Stage loginStage = new Stage();
-            loginStage.setTitle("Quiz de Desenhos Animados");
+            loginStage.setTitle("Quiz Animado - Versão Alpha 1.3");
             Scene scene = new Scene(App.loadFXML("primary"), 1280, 720);
             loginStage.setScene(scene);
             loginStage.setResizable(false);

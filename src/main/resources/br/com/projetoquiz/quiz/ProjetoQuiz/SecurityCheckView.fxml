@@ -5,14 +5,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.layout.Background?>
-<?import javafx.scene.layout.BackgroundFill?>
-<?import javafx.scene.layout.CornerRadii?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxWidth="500.0" spacing="20.0"
+<VBox alignment="CENTER" spacing="20.0"
+      style="-fx-background-color: linear-gradient(to bottom, #eef2f3, #dfe9f3);"
       xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="br.com.projetoquiz.quiz.ProjetoQuiz.SecurityCheckController"
       prefWidth="800.0" prefHeight="600.0">
@@ -23,47 +20,51 @@
 
    <children>
       <!-- Título -->
-      <Label text="Verificação de Segurança" textFill="#2c3e50">
+      <Label text="Verificação em duas etapas" textFill="#2c3e50">
          <font>
             <Font name="System Bold" size="32.0"/>
          </font>
          <effect>
-            <DropShadow radius="6.0" color="#00000055"/>
+            <DropShadow radius="6.0" color="#00000033"/>
          </effect>
       </Label>
 
-      <!-- Subtítulo -->
-      <Label text="Para sua segurança, por favor, insira seu PIN de 4 dígitos." textFill="#34495e" wrapText="true" maxWidth="400.0">
+      <!-- Subtítulo corrigido e sem quebra -->
+      <Label text="Para sua segurança, por favor, insira seu PIN de 4 dígitos."
+             textFill="#34495e"
+             wrapText="false"
+             maxWidth="800.0"
+             alignment="CENTER">
          <font>
             <Font name="System" size="16.0"/>
          </font>
       </Label>
 
       <!-- Campo PIN -->
-      <PasswordField fx:id="pinField" alignment="CENTER" maxWidth="150.0" promptText="PIN" />
+      <PasswordField fx:id="pinField"
+                     alignment="CENTER"
+                     maxWidth="150.0"
+                     promptText="PIN"
+                     style="-fx-background-radius: 10;
+                            -fx-border-radius: 10;
+                            -fx-border-color: #ccc;
+                            -fx-padding: 8;"/>
 
       <!-- Botão Confirmar -->
-      <Button onAction="#handleConfirmAction" text="Confirmar" textFill="white">
+      <Button onAction="#handleConfirmAction"
+              text="Concluído"
+              textFill="white"
+              maxWidth="200.0"
+              style="-fx-background-color: linear-gradient(to right, #4facfe, #00f2fe);
+                     -fx-background-radius: 20;
+                     -fx-padding: 10 20;
+                     -fx-font-size: 16px;">
          <font>
             <Font name="System Bold" size="16.0"/>
          </font>
          <effect>
-            <DropShadow radius="4.0" color="#00000055"/>
+            <DropShadow radius="4.0" color="#00000044"/>
          </effect>
-         <background>
-            <Background>
-               <fills>
-                  <BackgroundFill>
-                     <fill>
-                        <Color fx:constant="SEAGREEN"/>
-                     </fill>
-                     <radii>
-                        <CornerRadii topLeft="10.0" topRight="10.0" bottomLeft="10.0" bottomRight="10.0"/>
-                     </radii>
-                  </BackgroundFill>
-               </fills>
-            </Background>
-         </background>
       </Button>
 
       <!-- Status -->
