@@ -1,4 +1,4 @@
-# 🎮 Projeto Quiz Animado - Desenhos Animados (2000)
+# 🎮 Quiz Animado - Desenhos Animados (2000)
 
 Um **quiz interativo** desenvolvido em **Java** com **JavaFX** sobre **desenhos animados dos anos 2000**.  
 O projeto conta com **sistema de login e cadastro seguro**, **dificuldade adaptativa**, **pontuação e ranking**, e diversas funcionalidades pensadas para **usabilidade e experiência do usuário (UX)**.
