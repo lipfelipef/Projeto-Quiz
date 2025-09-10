@@ -1,0 +1,30 @@
+# Arquivos e pastas do Maven
+/target/
+
+# Arquivos de log do Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# Arquivos do Eclipse
+.classpath
+.project
+.settings/
+.factorypath
+
+# Arquivos da IDE (genérico)
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Arquivos de log e temporários
+*.log
+*.tmp
+
+# Arquivo do banco de dados local - NÃO ENVIAR!
+quiz.db
